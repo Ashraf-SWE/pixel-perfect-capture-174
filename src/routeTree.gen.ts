@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountsRouteImport } from './routes/accounts'
+import { Route as CollectionRouteImport } from './routes/collection'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PerformanceRouteImport } from './routes/performance'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as SettlementRouteImport } from './routes/settlement'
+import { Route as OrdersIndexRouteImport } from './routes/orders/index'
+import { Route as OrdersOrderIdRouteImport } from './routes/orders/$orderId'
+import { Route as OrdersNewRouteImport } from './routes/orders/new'
+import { Route as ShopsIndexRouteImport } from './routes/shops/index'
+import { Route as ShopsShopIdRouteImport } from './routes/shops/$shopId'
+import { Route as ShopsNewRouteImport } from './routes/shops/new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountsRoute = AccountsRouteImport.update({
+  id: '/accounts',
+  path: '/accounts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionRoute = CollectionRouteImport.update({
+  id: '/collection',
+  path: '/collection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerformanceRoute = PerformanceRouteImport.update({
+  id: '/performance',
+  path: '/performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettlementRoute = SettlementRouteImport.update({
+  id: '/settlement',
+  path: '/settlement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersIndexRoute = OrdersIndexRouteImport.update({
+  id: '/orders/',
+  path: '/orders/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersOrderIdRoute = OrdersOrderIdRouteImport.update({
+  id: '/orders/$orderId',
+  path: '/orders/$orderId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersNewRoute = OrdersNewRouteImport.update({
+  id: '/orders/new',
+  path: '/orders/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopsIndexRoute = ShopsIndexRouteImport.update({
+  id: '/shops/',
+  path: '/shops/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopsShopIdRoute = ShopsShopIdRouteImport.update({
+  id: '/shops/$shopId',
+  path: '/shops/$shopId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopsNewRoute = ShopsNewRouteImport.update({
+  id: '/shops/new',
+  path: '/shops/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/collection': typeof CollectionRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/performance': typeof PerformanceRoute
+  '/profile': typeof ProfileRoute
+  '/settlement': typeof SettlementRoute
+  '/orders/$orderId': typeof OrdersOrderIdRoute
+  '/orders/new': typeof OrdersNewRoute
+  '/shops/$shopId': typeof ShopsShopIdRoute
+  '/shops/new': typeof ShopsNewRoute
+  '/orders/': typeof OrdersIndexRoute
+  '/shops/': typeof ShopsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/collection': typeof CollectionRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/performance': typeof PerformanceRoute
+  '/profile': typeof ProfileRoute
+  '/settlement': typeof SettlementRoute
+  '/orders/$orderId': typeof OrdersOrderIdRoute
+  '/orders/new': typeof OrdersNewRoute
+  '/shops/$shopId': typeof ShopsShopIdRoute
+  '/shops/new': typeof ShopsNewRoute
+  '/orders': typeof OrdersIndexRoute
+  '/shops': typeof ShopsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/collection': typeof CollectionRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/performance': typeof PerformanceRoute
+  '/profile': typeof ProfileRoute
+  '/settlement': typeof SettlementRoute
+  '/orders/$orderId': typeof OrdersOrderIdRoute
+  '/orders/new': typeof OrdersNewRoute
+  '/shops/$shopId': typeof ShopsShopIdRoute
+  '/shops/new': typeof ShopsNewRoute
+  '/orders/': typeof OrdersIndexRoute
+  '/shops/': typeof ShopsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/accounts'
+    | '/collection'
+    | '/login'
+    | '/notifications'
+    | '/performance'
+    | '/profile'
+    | '/settlement'
+    | '/orders/$orderId'
+    | '/orders/new'
+    | '/shops/$shopId'
+    | '/shops/new'
+    | '/orders/'
+    | '/shops/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/accounts'
+    | '/collection'
+    | '/login'
+    | '/notifications'
+    | '/performance'
+    | '/profile'
+    | '/settlement'
+    | '/orders/$orderId'
+    | '/orders/new'
+    | '/shops/$shopId'
+    | '/shops/new'
+    | '/orders'
+    | '/shops'
+  id:
+    | '__root__'
+    | '/'
+    | '/accounts'
+    | '/collection'
+    | '/login'
+    | '/notifications'
+    | '/performance'
+    | '/profile'
+    | '/settlement'
+    | '/orders/$orderId'
+    | '/orders/new'
+    | '/shops/$shopId'
+    | '/shops/new'
+    | '/orders/'
+    | '/shops/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountsRoute: typeof AccountsRoute
+  CollectionRoute: typeof CollectionRoute
+  LoginRoute: typeof LoginRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PerformanceRoute: typeof PerformanceRoute
+  ProfileRoute: typeof ProfileRoute
+  SettlementRoute: typeof SettlementRoute
+  OrdersOrderIdRoute: typeof OrdersOrderIdRoute
+  OrdersNewRoute: typeof OrdersNewRoute
+  ShopsShopIdRoute: typeof ShopsShopIdRoute
+  ShopsNewRoute: typeof ShopsNewRoute
+  OrdersIndexRoute: typeof OrdersIndexRoute
+  ShopsIndexRoute: typeof ShopsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +221,115 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accounts': {
+      id: '/accounts'
+      path: '/accounts'
+      fullPath: '/accounts'
+      preLoaderRoute: typeof AccountsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collection': {
+      id: '/collection'
+      path: '/collection'
+      fullPath: '/collection'
+      preLoaderRoute: typeof CollectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/performance': {
+      id: '/performance'
+      path: '/performance'
+      fullPath: '/performance'
+      preLoaderRoute: typeof PerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settlement': {
+      id: '/settlement'
+      path: '/settlement'
+      fullPath: '/settlement'
+      preLoaderRoute: typeof SettlementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders/': {
+      id: '/orders/'
+      path: '/orders'
+      fullPath: '/orders/'
+      preLoaderRoute: typeof OrdersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders/$orderId': {
+      id: '/orders/$orderId'
+      path: '/orders/$orderId'
+      fullPath: '/orders/$orderId'
+      preLoaderRoute: typeof OrdersOrderIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders/new': {
+      id: '/orders/new'
+      path: '/orders/new'
+      fullPath: '/orders/new'
+      preLoaderRoute: typeof OrdersNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shops/': {
+      id: '/shops/'
+      path: '/shops'
+      fullPath: '/shops/'
+      preLoaderRoute: typeof ShopsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shops/$shopId': {
+      id: '/shops/$shopId'
+      path: '/shops/$shopId'
+      fullPath: '/shops/$shopId'
+      preLoaderRoute: typeof ShopsShopIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shops/new': {
+      id: '/shops/new'
+      path: '/shops/new'
+      fullPath: '/shops/new'
+      preLoaderRoute: typeof ShopsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountsRoute: AccountsRoute,
+  CollectionRoute: CollectionRoute,
+  LoginRoute: LoginRoute,
+  NotificationsRoute: NotificationsRoute,
+  PerformanceRoute: PerformanceRoute,
+  ProfileRoute: ProfileRoute,
+  SettlementRoute: SettlementRoute,
+  OrdersOrderIdRoute: OrdersOrderIdRoute,
+  OrdersNewRoute: OrdersNewRoute,
+  ShopsShopIdRoute: ShopsShopIdRoute,
+  ShopsNewRoute: ShopsNewRoute,
+  OrdersIndexRoute: OrdersIndexRoute,
+  ShopsIndexRoute: ShopsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

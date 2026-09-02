@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountsRouteImport } from './routes/accounts'
 import { Route as CollectionRouteImport } from './routes/collection'
+import { Route as PerformanceRouteImport } from './routes/performance'
 import { Route as SettlementRouteImport } from './routes/settlement'
 import { Route as OrdersIndexRouteImport } from './routes/orders/index'
 import { Route as OrdersOrderIdRouteImport } from './routes/orders/$orderId'
@@ -33,6 +34,11 @@ const AccountsRoute = AccountsRouteImport.update({
 const CollectionRoute = CollectionRouteImport.update({
   id: '/collection',
   path: '/collection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerformanceRoute = PerformanceRouteImport.update({
+  id: '/performance',
+  path: '/performance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SettlementRoute = SettlementRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accounts': typeof AccountsRoute
   '/collection': typeof CollectionRoute
+  '/performance': typeof PerformanceRoute
   '/settlement': typeof SettlementRoute
   '/orders/$orderId': typeof OrdersOrderIdRoute
   '/orders/new': typeof OrdersNewRoute
@@ -87,6 +94,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accounts': typeof AccountsRoute
   '/collection': typeof CollectionRoute
+  '/performance': typeof PerformanceRoute
   '/settlement': typeof SettlementRoute
   '/orders/$orderId': typeof OrdersOrderIdRoute
   '/orders/new': typeof OrdersNewRoute
@@ -100,6 +108,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/accounts': typeof AccountsRoute
   '/collection': typeof CollectionRoute
+  '/performance': typeof PerformanceRoute
   '/settlement': typeof SettlementRoute
   '/orders/$orderId': typeof OrdersOrderIdRoute
   '/orders/new': typeof OrdersNewRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accounts'
     | '/collection'
+    | '/performance'
     | '/settlement'
     | '/orders/$orderId'
     | '/orders/new'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accounts'
     | '/collection'
+    | '/performance'
     | '/settlement'
     | '/orders/$orderId'
     | '/orders/new'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accounts'
     | '/collection'
+    | '/performance'
     | '/settlement'
     | '/orders/$orderId'
     | '/orders/new'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountsRoute: typeof AccountsRoute
   CollectionRoute: typeof CollectionRoute
+  PerformanceRoute: typeof PerformanceRoute
   SettlementRoute: typeof SettlementRoute
   OrdersOrderIdRoute: typeof OrdersOrderIdRoute
   OrdersNewRoute: typeof OrdersNewRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/collection'
       fullPath: '/collection'
       preLoaderRoute: typeof CollectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/performance': {
+      id: '/performance'
+      path: '/performance'
+      fullPath: '/performance'
+      preLoaderRoute: typeof PerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/settlement': {
@@ -239,6 +259,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountsRoute: AccountsRoute,
   CollectionRoute: CollectionRoute,
+  PerformanceRoute: PerformanceRoute,
   SettlementRoute: SettlementRoute,
   OrdersOrderIdRoute: OrdersOrderIdRoute,
   OrdersNewRoute: OrdersNewRoute,

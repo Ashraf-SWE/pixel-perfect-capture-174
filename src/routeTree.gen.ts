@@ -14,6 +14,7 @@ import { Route as AccountsRouteImport } from './routes/accounts'
 import { Route as CollectionRouteImport } from './routes/collection'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PerformanceRouteImport } from './routes/performance'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as SettlementRouteImport } from './routes/settlement'
 import { Route as OrdersIndexRouteImport } from './routes/orders/index'
 import { Route as OrdersOrderIdRouteImport } from './routes/orders/$orderId'
@@ -45,6 +46,11 @@ const NotificationsRoute = NotificationsRouteImport.update({
 const PerformanceRoute = PerformanceRouteImport.update({
   id: '/performance',
   path: '/performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SettlementRoute = SettlementRouteImport.update({
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/collection': typeof CollectionRoute
   '/notifications': typeof NotificationsRoute
   '/performance': typeof PerformanceRoute
+  '/profile': typeof ProfileRoute
   '/settlement': typeof SettlementRoute
   '/orders/$orderId': typeof OrdersOrderIdRoute
   '/orders/new': typeof OrdersNewRoute
@@ -103,6 +110,7 @@ export interface FileRoutesByTo {
   '/collection': typeof CollectionRoute
   '/notifications': typeof NotificationsRoute
   '/performance': typeof PerformanceRoute
+  '/profile': typeof ProfileRoute
   '/settlement': typeof SettlementRoute
   '/orders/$orderId': typeof OrdersOrderIdRoute
   '/orders/new': typeof OrdersNewRoute
@@ -118,6 +126,7 @@ export interface FileRoutesById {
   '/collection': typeof CollectionRoute
   '/notifications': typeof NotificationsRoute
   '/performance': typeof PerformanceRoute
+  '/profile': typeof ProfileRoute
   '/settlement': typeof SettlementRoute
   '/orders/$orderId': typeof OrdersOrderIdRoute
   '/orders/new': typeof OrdersNewRoute
@@ -134,6 +143,7 @@ export interface FileRouteTypes {
     | '/collection'
     | '/notifications'
     | '/performance'
+    | '/profile'
     | '/settlement'
     | '/orders/$orderId'
     | '/orders/new'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/collection'
     | '/notifications'
     | '/performance'
+    | '/profile'
     | '/settlement'
     | '/orders/$orderId'
     | '/orders/new'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/collection'
     | '/notifications'
     | '/performance'
+    | '/profile'
     | '/settlement'
     | '/orders/$orderId'
     | '/orders/new'
@@ -177,6 +189,7 @@ export interface RootRouteChildren {
   CollectionRoute: typeof CollectionRoute
   NotificationsRoute: typeof NotificationsRoute
   PerformanceRoute: typeof PerformanceRoute
+  ProfileRoute: typeof ProfileRoute
   SettlementRoute: typeof SettlementRoute
   OrdersOrderIdRoute: typeof OrdersOrderIdRoute
   OrdersNewRoute: typeof OrdersNewRoute
@@ -221,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/performance'
       fullPath: '/performance'
       preLoaderRoute: typeof PerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/settlement': {
@@ -281,6 +301,7 @@ const rootRouteChildren: RootRouteChildren = {
   CollectionRoute: CollectionRoute,
   NotificationsRoute: NotificationsRoute,
   PerformanceRoute: PerformanceRoute,
+  ProfileRoute: ProfileRoute,
   SettlementRoute: SettlementRoute,
   OrdersOrderIdRoute: OrdersOrderIdRoute,
   OrdersNewRoute: OrdersNewRoute,

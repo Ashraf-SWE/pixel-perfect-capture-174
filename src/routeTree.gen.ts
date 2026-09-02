@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountsRouteImport } from './routes/accounts'
 import { Route as CollectionRouteImport } from './routes/collection'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PerformanceRouteImport } from './routes/performance'
 import { Route as ProfileRouteImport } from './routes/profile'
@@ -36,6 +37,11 @@ const AccountsRoute = AccountsRouteImport.update({
 const CollectionRoute = CollectionRouteImport.update({
   id: '/collection',
   path: '/collection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accounts': typeof AccountsRoute
   '/collection': typeof CollectionRoute
+  '/login': typeof LoginRoute
   '/notifications': typeof NotificationsRoute
   '/performance': typeof PerformanceRoute
   '/profile': typeof ProfileRoute
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accounts': typeof AccountsRoute
   '/collection': typeof CollectionRoute
+  '/login': typeof LoginRoute
   '/notifications': typeof NotificationsRoute
   '/performance': typeof PerformanceRoute
   '/profile': typeof ProfileRoute
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/accounts': typeof AccountsRoute
   '/collection': typeof CollectionRoute
+  '/login': typeof LoginRoute
   '/notifications': typeof NotificationsRoute
   '/performance': typeof PerformanceRoute
   '/profile': typeof ProfileRoute
@@ -141,6 +150,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accounts'
     | '/collection'
+    | '/login'
     | '/notifications'
     | '/performance'
     | '/profile'
@@ -156,6 +166,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accounts'
     | '/collection'
+    | '/login'
     | '/notifications'
     | '/performance'
     | '/profile'
@@ -171,6 +182,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accounts'
     | '/collection'
+    | '/login'
     | '/notifications'
     | '/performance'
     | '/profile'
@@ -187,6 +199,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountsRoute: typeof AccountsRoute
   CollectionRoute: typeof CollectionRoute
+  LoginRoute: typeof LoginRoute
   NotificationsRoute: typeof NotificationsRoute
   PerformanceRoute: typeof PerformanceRoute
   ProfileRoute: typeof ProfileRoute
@@ -220,6 +233,13 @@ declare module '@tanstack/react-router' {
       path: '/collection'
       fullPath: '/collection'
       preLoaderRoute: typeof CollectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -299,6 +319,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountsRoute: AccountsRoute,
   CollectionRoute: CollectionRoute,
+  LoginRoute: LoginRoute,
   NotificationsRoute: NotificationsRoute,
   PerformanceRoute: PerformanceRoute,
   ProfileRoute: ProfileRoute,

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/accounts")({
       { property: "og:description", content: "বাকি, কালেকশন ও লেজারের পূর্ণ হিসাব।" },
     ],
   }),
-  component: Accounts;
+  component: Accounts,
 });
 
 function Accounts() {
